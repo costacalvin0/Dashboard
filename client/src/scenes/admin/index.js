@@ -1,9 +1,9 @@
 import React from "react";
-import { useGetAdminsQuery } from "state/api";
 import { Box, useTheme } from "@mui/material";
+import { useGetAdminsQuery } from "state/api";
 import { DataGrid } from "@mui/x-data-grid";
 import Header from "components/Header";
-import CustomColumnMenu from "components/DataGridCustomColumnMenu";
+import DataGridCustomColumnMenu from "components/DataGridCustomColumnMenu";
 
 const Admin = () => {
   const theme = useTheme();
@@ -51,10 +51,10 @@ const Admin = () => {
   ];
 
   return (
-    <Box margin={"1.5rem 2.5rem"}>
+    <Box m="1.5rem 2.5rem">
       <Header title="ADMINS" subtitle="Managing admins and list of admins" />
       <Box
-        marginTop="40px"
+        mt="40px"
         height="75vh"
         sx={{
           "& .MuiDataGrid-root": {
@@ -86,8 +86,8 @@ const Admin = () => {
           getRowId={(row) => row._id}
           rows={data || []}
           columns={columns}
-          components={{
-            ColumnMenu: CustomColumnMenu,
+          slots={{
+            ColumnMenu: DataGridCustomColumnMenu,
           }}
         />
       </Box>
